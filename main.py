@@ -31,7 +31,7 @@ def create_embed(user_id, profile_data, access_token, refresh_token):
 @app.route("/")
 def home():
 
-    oauth = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scope)
+    oauth = OAuth2Session(client_id, redirect_uri="https://flask-production-6a75.up.railway.app/oauth_callback", scope=scope)
     login_url, state = oauth.authorization_url(authorize_url)
     session['state'] = state
     print("Login url: %s" % login_url)
