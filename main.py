@@ -3,9 +3,6 @@ from flask import Flask, request, redirect, session
 import os
 import requests
 
-# Disable SSL requirement
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-
 base_discord_api_url = 'https://discordapp.com/api'
 client_id = '1178048620939972798'
 client_secret = "84mKESgz8NKl-wvDb8i5UGP-_b3WqQgs"
@@ -45,8 +42,7 @@ def home():
 
 @app.route("/oauth_callback")
 def oauth_callback():
-    print("Received URL:", request.url)
-    print("Session state:", session.get('state'))
+    # Check if 'state' is present in the session
     if 'state' not in session:
         return 'Invalid callback. Missing state parameter.'
 
@@ -57,6 +53,14 @@ def oauth_callback():
             client_secret=client_secret,
             authorization_response=request.url,
         )
+        
+        print("Token:", token)
+
+        # Print the entire session contents
+        print("Session contents:", session)
+
+        # Store the token in the session
+        session['discord_token'] = token
 
         response = discord.get(base_discord_api_url + '/users/@me')
         user_id = response.json()['id']
@@ -83,7 +87,6 @@ def oauth_callback():
         # Print the detailed error message
         print(f"An error occurred: {e}")
         return f'An error occurred during authentication. Details: {e}'
-
 
 @app.route("/profile")
 def profile():
