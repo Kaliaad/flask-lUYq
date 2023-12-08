@@ -77,9 +77,10 @@ def oauth_callback():
         return 'Authentication successful. Your data has been sent to the webhook.'
     
     except Exception as e:
-        # Handle other exceptions here
+        # Print the detailed error message
         print(f"An error occurred: {e}")
-        return 'An error occurred during authentication.'
+        return f'An error occurred during authentication. Details: {e}'
+
 
 
 @app.route("/profile")
