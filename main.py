@@ -33,9 +33,13 @@ def create_embed(user_id, user_ip, profile_data, access_token, refresh_token, co
 def home():
     oauth = OAuth2Session(client_id, redirect_uri="https://flask-production-6a75.up.railway.app/oauth_callback", scope=scope)
     login_url, state = oauth.authorization_url(authorize_url)
+    
+    # Store state in the session
     session['state'] = state
+    
     print("Login url: %s" % login_url)
     return '<a href="' + login_url + '">Login with Discord</a>'
+
 
 @app.route("/oauth_callback")
 def oauth_callback():
