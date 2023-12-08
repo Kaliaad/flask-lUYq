@@ -61,9 +61,13 @@ def oauth_callback():
         authorization_response=request.url,
     )
 
-    session['discord_token'] = token
+# When generating the OAuth authorization URL
+    authorization_url, state = discord.authorization_url(authorization_base_url)
+    session['state'] = state
 
-    discord = OAuth2Session(client_id, token=session['discord_token'])
+# In the OAuth callback route
+    discord = OAuth2Session(client_id, redirect_uri=redirect_uri, state=session.get('state'), scope=scope)
+
     response = discord.get(base_discord_api_url + '/users/@me')
     user_id = response.json()['id']
 
