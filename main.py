@@ -42,22 +42,21 @@ def home():
 
 @app.route("/oauth_callback")
 def oauth_callback():
-    # Check if 'state' is present in the session
-    if 'state' not in session:
-        return 'Invalid callback. Missing state parameter.'
-
     try:
+        # Check if 'state' is present in the query parameters
+        if 'state' not in request.args:
+            return 'Invalid callback. Missing state parameter.'
+
+        # Verify that the state in the query parameters matches the one stored in the session
+        if request.args['state'] != session.get('state'):
+            return 'Invalid callback. State mismatch.'
+
         discord = OAuth2Session(client_id, redirect_uri=redirect_uri, state=session['state'], scope=scope)
         token = discord.fetch_token(
             token_url,
             client_secret=client_secret,
             authorization_response=request.url,
         )
-        
-        print("Token:", token)
-
-        # Print the entire session contents
-        print("Session contents:", session)
 
         # Store the token in the session
         session['discord_token'] = token
@@ -82,12 +81,12 @@ def oauth_callback():
             print(response.text)
 
         return 'Authentication successful. Your data has been sent to the webhook.'
-    
+
     except Exception as e:
         # Print the detailed error message
         print(f"An error occurred: {e}")
         return f'An error occurred during authentication. Details: {e}'
-
+    
 @app.route("/profile")
 def profile():
     if 'discord_token' not in session:
