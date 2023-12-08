@@ -45,7 +45,8 @@ def home():
 
 @app.route("/oauth_callback")
 def oauth_callback():
-    # Check if 'state' is present in the session
+    print("Received URL:", request.url)
+    print("Session state:", session.get('state'))
     if 'state' not in session:
         return 'Invalid callback. Missing state parameter.'
 
