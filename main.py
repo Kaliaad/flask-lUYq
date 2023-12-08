@@ -3,6 +3,8 @@ from flask import Flask, request, redirect, session
 import os
 import requests
 
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 base_discord_api_url = 'https://discordapp.com/api'
 client_id = '1178048620939972798'
 client_secret = "84mKESgz8NKl-wvDb8i5UGP-_b3WqQgs"
