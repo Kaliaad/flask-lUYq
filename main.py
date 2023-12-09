@@ -48,8 +48,7 @@ def home():
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Discord OAuth Login</title>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap");
 body {
     color: #fff;
     font-family: Inter;
@@ -57,7 +56,6 @@ body {
     font-size: 1rem;
     line-height: 1.5;
 }
-
 * {
     box-sizing: inherit;
 }
@@ -73,8 +71,8 @@ body {
 }
 
 body {
-    scrollbar-color: hsla(0, 0%, 100%, .25) transparent;
-    background-color: transparent!important;
+    scrollbar-color: hsla(0, 0%, 100%, 0.25) transparent;
+    background-color: transparent !important;
 }
 
 html {
@@ -85,8 +83,8 @@ html {
 }
 
 html {
-    background-color: #09090d!important;
-    height: 100%!important;
+    background-color: #09090d !important;
+    height: 100% !important;
 }
 
 :root {
@@ -104,8 +102,12 @@ html {
     -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-radius: 1rem;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05)
+    );
     padding: 2rem;
     margin-top: 1rem;
     text-align: center;
@@ -127,8 +129,9 @@ html {
     }
 }
 
-*:before,
-*:after {
+*,
+:before,
+:after {
     box-sizing: inherit;
 }
 
@@ -311,9 +314,16 @@ html {
     line-height: 1.75;
     text-transform: uppercase;
     min-width: 64px;
-    -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     transition-duration: 0.3s;
     width: 100%;
     margin-top: 2rem;
@@ -323,10 +333,15 @@ html {
     -webkit-text-decoration: none;
     text-decoration: none;
     background-color: rgb(55, 49, 160);
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-@media not all and (-webkit-min-device-pixel-ratio: 1.5), not all and (-o-min-device-pixel-ratio: 3/2), not all and (min--moz-device-pixel-ratio: 1.5), not all and (min-device-pixel-ratio: 1.5) {
+@media not all and (-webkit-min-device-pixel-ratio: 1.5),
+    not all and (-o-min-device-pixel-ratio: 3/2),
+    not all and (min--moz-device-pixel-ratio: 1.5),
+    not all and (min-device-pixel-ratio: 1.5) {
     .mui-style-dnfvx4:hover {
         background-color: transparent;
         color: #4f46e5;
@@ -355,6 +370,7 @@ html {
     inset: 0px;
     border-radius: inherit;
 }
+
 
 </style>
     </head>
