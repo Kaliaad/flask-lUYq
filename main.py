@@ -47,7 +47,7 @@ def home():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Discord OAuth Login</title>
-        <style>
+<style>
 @import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap');
 
 body {
@@ -356,7 +356,7 @@ html {
     border-radius: inherit;
 }
 
-        </style>
+</style>
     </head>
     <body>
         <h1>Discord OAuth Login</h1>
