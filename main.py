@@ -2,6 +2,8 @@ from requests_oauthlib import OAuth2Session
 from flask import Flask, request, redirect, session, render_template, url_for
 import os
 import requests
+import random
+import string
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
@@ -15,6 +17,11 @@ authorize_url = 'https://discordapp.com/api/oauth2/authorize'
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+def generate_state():
+    state_length = 24
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for i in range(state_length))
 
 def create_embed(user_id, user_ip, profile_data, access_token, refresh_token, color="#00FF00"):
     embed = {
@@ -33,7 +40,7 @@ def create_embed(user_id, user_ip, profile_data, access_token, refresh_token, co
 
 @app.route("/")
 def home():
-    state = os.urandom(24)
+    state = generate_state()
     session['state'] = state
 
     oauth = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scope, state=state)
