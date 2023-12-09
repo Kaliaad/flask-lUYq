@@ -1,5 +1,5 @@
 from requests_oauthlib import OAuth2Session
-from flask import Flask, request, redirect, session
+from flask import Flask, request, redirect, session, render_template  # render_template eklenmiştir
 import os
 import requests
 
