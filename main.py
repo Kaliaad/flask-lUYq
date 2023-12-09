@@ -41,7 +41,8 @@ def home():
     login_url, _ = oauth.authorization_url(authorize_url)
 
     print("Login url: %s" % login_url)
-    return '<a href="' + login_url + '">Login with Discord</a>'
+    return render_template('index.html')
+
 
 
 @app.route("/oauth_callback")
