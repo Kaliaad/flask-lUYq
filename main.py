@@ -39,8 +39,10 @@ def home():
     oauth = OAuth2Session(client_id, redirect_uri=redirect_uri, scope=scope, state=state)
     login_url, _ = oauth.authorization_url(authorize_url)
 
+    print("Generated state:", state)
     print("Login url:", login_url)
     return render_template('index.html')
+
 
 @app.route("/oauth_callback")
 def oauth_callback():
