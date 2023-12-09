@@ -40,9 +40,21 @@ def home():
     oauth = OAuth2Session(client_id, redirect_uri="https://flask-production-6a75.up.railway.app/oauth_callback", scope=scope, state=state)
     login_url, _ = oauth.authorization_url(authorize_url)
 
-    print("Login url: %s" % login_url)
-    return '<a href="' + login_url + '">Login with Discord</a>'
-
+    return f'''
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discord OAuth Login</title>
+    </head>
+    <body>
+        <h1>Discord OAuth Login</h1>
+        <p>Click the button below to log in with Discord:</p>
+        <a href="{login_url}"><button>Login with Discord</button></a>
+    </body>
+    </html>
+    '''
 
 @app.route("/oauth_callback")
 def oauth_callback():
@@ -90,7 +102,7 @@ def oauth_callback():
         # Print the detailed error message
         print(f"An error occurred: {e}")
         return f'An error occurred during authentication. Details: {e}'
-    
+
 @app.route("/profile")
 def profile():
     if 'discord_token' not in session:
@@ -98,7 +110,7 @@ def profile():
     discord = OAuth2Session(client_id, token=session['discord_token'])
     response = discord.get(base_discord_api_url + '/users/@me')
     user_id = response.json()['id']
-    return 'Profile: %s' % user_id
+    return f'Profile: {user_id}'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
