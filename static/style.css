@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap'); 
-  body {  
+  body {{  
     color:#fff;
     font-family:Inter;
     font-weight:400;
     font-size:1rem;
     line-height:1.5;
-  }  
-* { 
+  }}  
+* {{ 
     box-sizing: inherit;
-} 
+}} 
 
-body { 
+body {{ 
     margin: 0; 
     color: #fff; 
     font-family: Inter; 
@@ -18,30 +18,30 @@ body {
     font-size: 1rem; 
     line-height: 1.5; 
     background-color: #121212;
-} 
+}} 
 
-body { 
+body {{ 
     scrollbar-color: hsla(0,0%,100%,.25) transparent; 
     background-color: transparent!important;
-} 
+}} 
 
-html { 
+html {{ 
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale; 
     box-sizing: border-box; 
     -webkit-text-size-adjust: 100%;
-} 
+}} 
 
-html { 
+html {{ 
     background-color: #09090d!important; 
     height: 100%!important;
-} 
+}} 
 
-:root { 
+:root {{ 
     color-scheme: dark;
-} 
+}} 
 
-.mui-style-qceu3r { 
+.mui-style-qceu3r {{ 
     background-color: #00000026; 
     color: #fff;
     flex-direction: column;
@@ -61,25 +61,25 @@ html {
     box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.25); 
     -webkit-backdrop-filter: blur(1.5rem); 
     backdrop-filter: blur(1.5rem);
-} 
+}} 
 
-@media (min-width: 0px){ 
-  .mui-style-qceu3r { 
+@media (min-width: 0px){{ 
+  .mui-style-qceu3r {{ 
     width: 100%;
-  } 
-}     
+  }} 
+}}     
 
-@media (min-width: 900px){ 
-  .mui-style-qceu3r { 
+@media (min-width: 900px){{ 
+  .mui-style-qceu3r {{ 
     width: 50%;
-  } 
-}     
+  }} 
+}}     
 
-*,:before,:after { 
+*,:before,:after {{ 
     box-sizing: inherit;
-} 
+}} 
 
-.mui-style-1n2mv2k { 
+.mui-style-1n2mv2k {{ 
     display: -webkit-box; 
     display: -webkit-flex; 
     display: -ms-flexbox; 
@@ -92,9 +92,9 @@ html {
     -webkit-box-align: center; 
     -ms-flex-align: center; 
     align-items: center;
-} 
+}} 
 
-.mui-style-iqirns { 
+.mui-style-iqirns {{ 
     margin: 0; 
     font-family: Inter; 
     font-weight: 400; 
@@ -103,21 +103,21 @@ html {
     text-align: center; 
     white-space: pre-line; 
     overflow-wrap: break-word;
-} 
+}} 
 
-@media (min-width: 0px){ 
-  .mui-style-iqirns { 
+@media (min-width: 0px){{ 
+  .mui-style-iqirns {{ 
     font-size: 1rem;
-  } 
-}     
+  }} 
+}}     
 
-@media (min-width: 900px){ 
-  .mui-style-iqirns { 
+@media (min-width: 900px){{ 
+  .mui-style-iqirns {{ 
     font-size: 1.75rem;
-  } 
-}     
+  }} 
+}}     
 
-.mui-style-1p07y8n { 
+.mui-style-1p07y8n {{ 
     display: -webkit-box; 
     display: -webkit-flex; 
     display: -ms-flexbox; 
@@ -131,9 +131,9 @@ html {
     -ms-flex-align: center; 
     align-items: center; 
     margin-top: 1rem;
-} 
+}} 
 
-.mui-style-ewqgob { 
+.mui-style-ewqgob {{ 
     margin: 0; 
     font-family: Inter; 
     font-weight: 700; 
@@ -143,21 +143,21 @@ html {
     margin-right: 1rem; 
     text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25); 
     text-align: center;
-} 
+}} 
 
-@media (min-width: 0px){ 
-  .mui-style-ewqgob { 
+@media (min-width: 0px){{ 
+  .mui-style-ewqgob {{ 
     font-size: 1.5rem;
-  } 
-}     
+  }} 
+}}     
 
-@media (min-width: 900px){ 
-  .mui-style-ewqgob { 
+@media (min-width: 900px){{ 
+  .mui-style-ewqgob {{ 
     font-size: 3rem;
-  } 
-}     
+  }} 
+}}     
 
-.mui-style-jxmg75 { 
+.mui-style-jxmg75 {{ 
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
@@ -173,9 +173,9 @@ html {
     transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; 
     font-size: 1.5rem; 
     color: #9e9e9e;
-} 
+}} 
 
-.mui-style-1lpgmjw { 
+.mui-style-1lpgmjw {{ 
     position: relative; 
     display: -webkit-box; 
     display: -webkit-flex; 
@@ -203,23 +203,23 @@ html {
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
-} 
+}} 
 
-@media (min-width: 0px){ 
-  .mui-style-1lpgmjw { 
+@media (min-width: 0px){{ 
+  .mui-style-1lpgmjw {{ 
     width: 6rem; 
     height: 6rem;
-  } 
-}     
+  }} 
+}}     
 
-@media (min-width: 900px){ 
-  .mui-style-1lpgmjw { 
+@media (min-width: 900px){{ 
+  .mui-style-1lpgmjw {{ 
     width: 8rem; 
     height: 8rem;
-  } 
-}     
+  }} 
+}}     
 
-.mui-style-dnfvx4 { 
+.mui-style-dnfvx4 {{ 
     display: -webkit-inline-box; 
     display: -webkit-inline-flex; 
     display: -ms-inline-flexbox; 
@@ -264,43 +264,43 @@ html {
     transition-duration: 0.3s; 
     width: 100%; 
     margin-top: 2rem;
-} 
+}} 
 
-.mui-style-dnfvx4:hover { 
+.mui-style-dnfvx4:hover {{ 
     -webkit-text-decoration: none; 
     text-decoration: none; 
     background-color: rgb(55, 49, 160); 
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
-} 
+}} 
 
-@media not all and (-webkit-min-device-pixel-ratio: 1.5), not all and (-o-min-device-pixel-ratio: 3/2), not all and (min--moz-device-pixel-ratio: 1.5), not all and (min-device-pixel-ratio: 1.5){ 
-  .mui-style-dnfvx4:hover { 
+@media not all and (-webkit-min-device-pixel-ratio: 1.5), not all and (-o-min-device-pixel-ratio: 3/2), not all and (min--moz-device-pixel-ratio: 1.5), not all and (min-device-pixel-ratio: 1.5){{ 
+  .mui-style-dnfvx4:hover {{ 
     background-color: transparent; 
     color: #4f46e5;
-  } 
+  }} 
 
-  .mui-style-dnfvx4:hover { 
+  .mui-style-dnfvx4:hover {{ 
     outline: 1px solid #4e46ef; 
     color: #4e46ef;
-  } 
-}     
+  }} 
+}}     
 
-.mui-style-1hy9t21 { 
+.mui-style-1hy9t21 {{ 
     width: 100%; 
     height: 100%; 
     text-align: center; 
     object-fit: cover; 
     color: transparent; 
     text-indent: 10000px;
-} 
+}} 
 
-.mui-style-w0pj6f { 
+.mui-style-w0pj6f {{ 
     overflow: hidden; 
     pointer-events: none; 
     position: absolute; 
     z-index: 0; 
     inset: 0px; 
     border-radius: inherit;
-} 
+}} 
 
 
